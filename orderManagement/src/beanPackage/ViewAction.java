@@ -2,9 +2,11 @@ package beanPackage;
 
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import daoPackage.UserManagementDao;
 
-public class ViewAction{
+public class ViewAction extends ActionSupport{
 
 	//从前台接收数据
 
@@ -16,11 +18,11 @@ public class ViewAction{
 
 
 		UserManagementDao dao = UserManagementDao.getInstance();
-		List<UserInfo> result=dao.getUserInfos();
+		List<UserInfo> result = dao.getUserInfos();
 
 		userViewResult = "hello";
 
-		return "sucess";
+		return "zhouping";
 	}
 
 	public String getUserViewResult() {

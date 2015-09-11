@@ -3,7 +3,6 @@ package daoPackage;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,12 +11,10 @@ import beanPackage.UserInfo;
 public class UserManagementDao {
 
 	private String driver = "com.mysql.jdbc.Driver";
-	private String url = "jdbc:mysql://127.0.0.1:3306/ordermanagement?characterEncoding=UTF-8";
+	private String url = "jdbc:mysql://192.168.1.43:3306/ordermanagement?characterEncoding=UTF-8";
 	private String user = "root";
 	private String password = "1234";
 	private Connection conn;
-	private Statement stat;
-
 	private static UserManagementDao instance = new UserManagementDao();
 
 	private UserManagementDao() {
