@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name ="customerManagement"  namespace="/mystruts" extends="struts-default">
+		<action name ="ViewtAction" class ="beanPackage.ViewtAction">
+			<result name="success">/customerManage.jsp</result>
+		</action>
+		<action name ="RegisterActionn" class ="beanPackage.RegisterActionn">
+			<result name="success">/customerAddResult.jsp</result>
+		</action>
+	</package>
+</struts>
+
