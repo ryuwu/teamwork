@@ -5,12 +5,13 @@
 
 <struts>
 	<package name ="customerManagement"  namespace="/mystruts" extends="struts-default">
-		<action name ="ViewtAction" class ="beanPackage.ViewtAction">
+		<action name="viewAllUsers" class="beanPackage.ViewtAction" >
 			<result name="success">/customerManage.jsp</result>
 		</action>
-		<action name ="RegisterActionn" class ="beanPackage.RegisterActionn">
+		<action name="registerUser" class="beanPackage.RegisterActionn" >
 			<result name="success">/customerAddResult.jsp</result>
 		</action>
 	</package>
 </struts>
+
 
