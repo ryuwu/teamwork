@@ -12,6 +12,14 @@ public class ViewAction extends ActionSupport{
 
 	//往前台送数据，前台显示该数据
 	private String userViewResult;
+	
+	public String getUserViewResult() {
+		return userViewResult;
+	}
+
+	public void setUserViewResult(String userViewResult) {
+		this.userViewResult = userViewResult;
+	}
 
 
 	public String execute() throws Exception{
@@ -25,13 +33,7 @@ public class ViewAction extends ActionSupport{
 		return "zhouping";
 	}
 
-	public String getUserViewResult() {
-		return userViewResult;
-	}
 
-	public void setUserViewResult(String userViewResult) {
-		this.userViewResult = userViewResult;
-	}
 
 
 

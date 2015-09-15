@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<a href="customerAdd.jsp"><input type="button" value="添加用户">
+<a href="../customerAdd.jsp"><input type="button" value="添加用户">
 </a>
 
 <br>
