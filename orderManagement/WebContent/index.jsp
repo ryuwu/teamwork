@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
 <s:form action="viewAllUsers" namespace="/mystruts" >
 <s:submit value="顧客情報管理" />
 </s:form>

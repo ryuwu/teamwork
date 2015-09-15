@@ -1,25 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>hello</title>
 </head>
 <body>
-<a href="customerManage.jsp"><input type="button" value="返回">
+
+<a href="../index.jsp"><input type="button" value="返回首页">
 </a>
-<s:form action="mystruts/RegisterAction.action">
 
-String name = request.getParameter("userName");
-String email = request.getParameter("email");
-String address = request.getParameter("address");
+<br>
+<br>
 
-out.println(name);
-out.println(email);
-out.println(address);
 
-</s:form>
+<s:property value = "registerResult"/>
 
 </body>
 </html>

@@ -8,37 +8,27 @@ import daoPackage.UserManagementDao;
 
 public class ViewAction extends ActionSupport{
 
-	//从前台接收数据
-
-	//往前台送数据，前台显示该数据
-	private String userViewResult;
-	
-	public String getUserViewResult() {
-		return userViewResult;
-	}
-
-	public void setUserViewResult(String userViewResult) {
-		this.userViewResult = userViewResult;
-	}
-
+	private String result1;
 
 	public String execute() throws Exception{
 
-
 		UserManagementDao dao = UserManagementDao.getInstance();
 		List<UserInfo> result = dao.getUserInfos();
+		for(UserInfo userInfo:result) {
+			this.result1 += userInfo.getUserName() + userInfo.getEmail() + userInfo.getAddress() + "<br />";
 
-		userViewResult = "hello";
+		}
 
 		return "zhouping";
+
 	}
 
+	public String getResult1() {
+		return result1;
+	}
 
-
-
-
-
-
-
+	public void setResult1(String result1) {
+		this.result1 = result1;
+	}
 
 }

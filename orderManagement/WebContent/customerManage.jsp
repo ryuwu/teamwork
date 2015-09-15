@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>hello</title>
+<title></title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 <br>
 <br>
 
-<s:property value="userViewResult"/>
+<s:property value = "result1"/>
 
 </body>
 </html>
