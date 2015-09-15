@@ -8,15 +8,21 @@ import daoPackage.UserManagementDao;
 
 public class ViewAction extends ActionSupport{
 
-	private String result1;
+	private String result1 = "";
 
 	public String execute() throws Exception{
 
 		UserManagementDao dao = UserManagementDao.getInstance();
 		List<UserInfo> result = dao.getUserInfos();
-		for(UserInfo userInfo:result) {
-			this.result1 += userInfo.getUserName() + userInfo.getEmail() + userInfo.getAddress() + "<br />";
 
+		//显示表头
+		this.result1 += "<table border=\"1\"><tr><th>会社の名前</th><th>会社のE-mail</th><th>住所</th></tr>";
+
+
+		for(UserInfo userInfo:result) {
+			this.result1 += "<tr>";
+			this.result1 += "<td>" +userInfo.getUserName() + "</td><td>" + userInfo.getEmail() + "</td><td>" + userInfo.getAddress() + "</td>";
+			this.result1 += "</tr>";
 		}
 
 		return "zhouping";

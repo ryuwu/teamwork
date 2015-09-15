@@ -16,7 +16,7 @@
 <br>
 
 
-<s:property value = "registerResult"/>
+<s:property escape='0' value = "registerResult"/>
 
 </body>
 </html>

@@ -15,7 +15,7 @@
 <br>
 <br>
 
-<s:property value = "result1"/>
+<s:property escape='0' value = "result1"/>
 
 </body>
 </html>
