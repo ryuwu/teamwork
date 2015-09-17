@@ -66,6 +66,7 @@ function allCheck(){                        //将两个方法打包一起,这样
 <s:textfield name="userName" label="会社の名前" />
 <s:textfield name="email" label="E-Mail" />
 <s:textfield name="address" label="アドレス" />
+<s:hidden name="aaa" value="hello"></s:hidden>
 <s:submit value="サブミット" />
 </s:form>
 

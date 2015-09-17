@@ -72,9 +72,13 @@ public class UserManagementDao {
 			if(b > 0) {
 
 				a = true;
+				System.out.println("数据插入成功");
+
 			}
+
 		} catch(SQLException e) {
 
+			System.out.println("数据插入出现错误");
 			e.printStackTrace();
 
 		}
@@ -86,12 +90,12 @@ public class UserManagementDao {
 
 		ArrayList<UserInfo> userList = new ArrayList<UserInfo>();
 
-		String sql = "select userName,email,address,exitStatus from user";
+		String sql = "select userName,email,address,exitStatus from user order by userName";
 
 
 		try {
 
-			this.stat = conn.createStatement();
+			stat = conn.createStatement();
 
 			ResultSet rs = stat.executeQuery(sql);
 
@@ -107,12 +111,15 @@ public class UserManagementDao {
 				if(isExit == 1){
 
 					userList.add(ui);
+					System.out.println("数据查询成功");
 				}
 
 			}
 
+
 		} catch(SQLException e) {
 
+			System.out.println("数据查询出现错误");
 			e.printStackTrace();
 
 		}
@@ -120,6 +127,40 @@ public class UserManagementDao {
 
 		return userList;
 
+	}
+
+	public boolean updateUser(UserInfo uu) {
+
+		boolean a = false;
+
+		String email = uu.getEmail();
+		String address = uu.getAddress();
+
+		String sql = "update user set (email,address) values (?,?) where userName = ?";
+
+		try {
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setString(1,email);
+			ps.setString(2,address);
+
+			int b = ps.executeUpdate(sql);
+
+			if(b > 0) {
+
+				a = true;
+				System.out.println("数据更新成功");
+			}
+
+		} catch(SQLException e) {
+
+			System.out.println("数据更新出现错误");
+			e.printStackTrace();
+
+		}
+
+		return a;
 	}
 
 

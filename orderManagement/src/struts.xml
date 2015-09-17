@@ -11,5 +11,9 @@
 		<action name="registerUser" class="beanPackage.RegisterAction" >
 			<result name="success">/customerAddResult.jsp</result>
 		</action>
+		<action name="updateUser" class="beanPackage.HenkouAction" >
+			<result name="success">/hello.jsp</result>
+		</action>
+
 	</package>
 </struts>

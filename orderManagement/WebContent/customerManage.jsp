@@ -9,13 +9,14 @@
 </head>
 <body>
 
-<a href="../customerAdd.jsp"><input type="button" value="添加用户">
-</a>
+<s:a href="../customerAdd.jsp"><input type="button" value="添加用户"></s:a>
 
-<br>
-<br>
 
 <s:property escape='0' value = "result1"/>
+
+
+<s:a href="../index.jsp"><input type="button" value="返回首页"></s:a>
+
 
 </body>
 </html>
