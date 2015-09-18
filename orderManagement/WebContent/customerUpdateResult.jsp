@@ -9,13 +9,13 @@
 </head>
 <body>
 
-<s:property escape='0' value = "registerResult"/>
+<s:property escape='0' value = "message"/>
 <br>
 <s:form action="viewAllUsers" namespace="/mystruts" >
 <s:submit value="返回" />
 </s:form>
 
-<a href="../index.jsp"><input type="button" value="返回首页"></a>
+
 
 </body>
 </html>

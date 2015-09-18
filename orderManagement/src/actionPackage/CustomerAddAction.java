@@ -1,12 +1,17 @@
-package beanPackage;
+package actionPackage;
 
 import com.opensymphony.xwork2.ActionSupport;
+/**
+ * 顧客情報を伝送する
+ * @author ZhouPing
+ *
+ */
 
-public class HenkouAction extends ActionSupport{
+public class CustomerAddAction extends ActionSupport{
+	//接受前台传过来的值
 	private String userName;
 	private String address;
 	private String email;
-
 	public String getUserName() {
 		return userName;
 	}
@@ -26,6 +31,7 @@ public class HenkouAction extends ActionSupport{
 		this.email = email;
 	}
 	public String execute() throws Exception{
+		//往前返回一个success的字符串
 		return "success";
 	}
 

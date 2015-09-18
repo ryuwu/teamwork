@@ -1,11 +1,17 @@
-package beanPackage;
+package actionPackage;
+
+import infoPackage.CustomerInfo;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import daoPackage.UserManagementDao;
+import daoPackage.CustomerManagementDao;
 
-
-public class RegisterAction extends ActionSupport{
+/**
+ * 顧客情報の追加と判断
+ * @author ZhouPing
+ *
+ */
+public class CustomerRegisterAction extends ActionSupport{
 
 //用于接受前台数据
 	private String userName;
@@ -54,7 +60,9 @@ public class RegisterAction extends ActionSupport{
 		this.registerResult = registerResult;
 	}
 
-	//通过userinfo向dao传送数据
+	/**
+	 * 追加する内容はDaoクラスに渡す。
+	 */
 	public String execute() throws Exception{
 
 		if(userName == null || userName.equals("")){
@@ -74,13 +82,13 @@ public class RegisterAction extends ActionSupport{
 		}
 
 
-		UserInfo uInfo = new UserInfo();
+		CustomerInfo uInfo = new CustomerInfo();
 		uInfo.setUserName(this.userName);
 		uInfo.setEmail(this.email);
 		uInfo.setAddress(this.address);
 
 		//dao通过boolean值返回判断结果
-		UserManagementDao dao = UserManagementDao.getInstance();
+		CustomerManagementDao dao = CustomerManagementDao.getInstance();
 		boolean result = dao.addUser(uInfo);
 
 		if(result){

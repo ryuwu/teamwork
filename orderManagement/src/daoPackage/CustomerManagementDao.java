@@ -1,5 +1,7 @@
 package daoPackage;
 
+import infoPackage.CustomerInfo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,9 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import beanPackage.UserInfo;
-
-public class UserManagementDao {
+public class CustomerManagementDao {
 
 	private String driver = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://192.168.1.43/ordermanagement?characterEncoding=UTF-8";
@@ -20,9 +20,9 @@ public class UserManagementDao {
 	private Connection conn;
 	private Statement stat;
 
-	private static UserManagementDao instance = new UserManagementDao();
+	private static CustomerManagementDao instance = new CustomerManagementDao();
 
-	private UserManagementDao() {
+	private CustomerManagementDao() {
 
 		try {
 
@@ -43,11 +43,11 @@ public class UserManagementDao {
 
 	}
 
-	public static UserManagementDao getInstance() {
+	public static CustomerManagementDao getInstance() {
 		return instance;
 	}
 
-	public boolean addUser(UserInfo u) {
+	public boolean addUser(CustomerInfo u) {
 
 		boolean a = false;
 
@@ -86,9 +86,9 @@ public class UserManagementDao {
 		return a;
 	}
 
-	public List<UserInfo> getUserInfos() throws SQLException {
+	public List<CustomerInfo> getUserInfos() throws SQLException {
 
-		ArrayList<UserInfo> userList = new ArrayList<UserInfo>();
+		ArrayList<CustomerInfo> userList = new ArrayList<CustomerInfo>();
 
 		String sql = "select userName,email,address,exitStatus from user order by userName";
 
@@ -101,7 +101,7 @@ public class UserManagementDao {
 
 			while (rs.next()) {
 
-				UserInfo ui = new UserInfo();
+				CustomerInfo ui = new CustomerInfo();
 
 				ui.setUserName(rs.getString("userName"));
 				ui.setEmail(rs.getString("email"));
@@ -129,14 +129,19 @@ public class UserManagementDao {
 
 	}
 
-	public boolean updateUser(UserInfo uu) {
+	public boolean updateUser(CustomerInfo uu) {
 
 		boolean a = false;
 
+		String userName = uu.getUserName();
 		String email = uu.getEmail();
 		String address = uu.getAddress();
 
-		String sql = "update user set (email,address) values (?,?) where userName = ?";
+		System.out.println(userName);
+		System.out.println(email);
+		System.out.println(address);
+
+		String sql = "update user set email= ? ,address= ? where userName = ?";
 
 		try {
 
@@ -144,8 +149,10 @@ public class UserManagementDao {
 
 			ps.setString(1,email);
 			ps.setString(2,address);
+			ps.setString(3,userName);
 
-			int b = ps.executeUpdate(sql);
+
+			int b = ps.executeUpdate();
 
 			if(b > 0) {
 

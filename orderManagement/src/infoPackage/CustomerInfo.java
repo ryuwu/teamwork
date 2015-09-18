@@ -1,6 +1,6 @@
-package beanPackage;
+package infoPackage;
 
-public class UserInfo {
+public class CustomerInfo {
 
 	private String userName;
 	private String email;

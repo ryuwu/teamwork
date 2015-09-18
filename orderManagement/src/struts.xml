@@ -5,15 +5,17 @@
 
 <struts>
 	<package name ="text"  namespace="/mystruts" extends="struts-default">
-		<action name="viewAllUsers" class="beanPackage.ViewAction" >
-			<result name="zhouping">/customerManage.jsp</result>
+		<action name="viewAllUsers" class="actionPackage.CustomerViewAction" >
+			<result name="success">/customerManage.jsp</result>
 		</action>
-		<action name="registerUser" class="beanPackage.RegisterAction" >
+		<action name="registerUser" class="actionPackage.CustomerRegisterAction" >
 			<result name="success">/customerAddResult.jsp</result>
 		</action>
-		<action name="updateUser" class="beanPackage.HenkouAction" >
-			<result name="success">/hello.jsp</result>
+		<action name="updateUser" class="actionPackage.CustomerAddAction" >
+			<result name="success">/customerUpdate.jsp</result>
 		</action>
-
+		<action name="updateResult" class="actionPackage.CustomerUpdateAction" >
+			<result name="success">/customerUpdateResult.jsp</result>
+		</action>
 	</package>
 </struts>

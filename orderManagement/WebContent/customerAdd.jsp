@@ -2,75 +2,27 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<HTML>
- <HEAD>
-  <TITLE> hello </TITLE>
-  <script language="javascript">
-function userNameCheck(){                             //userName检测方法
-	var userName = document.myform.userName.value;
- 	if(userName.length==0){                                //如果为空
-   		alert("用户名不能为空");
 
-    	return false;
-	}
+<html>
+	<head>
+		<title>顧客追加</title>
+	</head>
 
- 	if( userName.indexOf(" ") != -1 ){
+	<body>
 
- 		alert("用户名不能有空格");
-
-		return false;
-
-	}
-
-	return true;
-}
-
-function addressCheck(){                         //address验证方法
-	var address=document.myform.address.value;
- 	if(address.length==0){
-    	alert("密码不能为空");
-  		return false;
- 	 }
-
- 	 return true;
-  }
-
-function emailCheck(){                         //email验证方法
-	var email=document.Myform.email.value;
- 	if( email.indexOf("@") ==-1){
- 		alert("请输入正确邮箱地址");
-    	return false;
- 	 }
-
- 	 return true;
-  }
+		<!-- 将公司名，E-Mail，アドレス传递给registerUserアクション -->
+		<s:form action="registerUser" namespace="/mystruts" >
+			<!-- 入力框.会社名 -->
+			<s:textfield name="userName" label="会社名" />
+			<!-- 入力框.E-Mail -->
+			<s:textfield name="email" label="E-Mail" />
+			<!-- 入力框.アドレス -->
+			<s:textfield name="address" label="アドレス" />
+			<!--提交按钮 -->
+			<s:submit value="保存" />
+		</s:form>
 
 
-function allCheck(){                        //将两个方法打包一起,这样条用这个allCheck()方法
-	if(userNameCheck()&&addressCheck()&&emailCheck()){                   //时就可以实现两个功能.
-   		return true;
- 	}
-	else{
-
-   		return false;
- 	}
-
-}
-
-</script>
-</HEAD>
-<BODY>
-
-
-<s:form action="registerUser" namespace="/mystruts" >
-<s:textfield name="userName" label="会社の名前" />
-<s:textfield name="email" label="E-Mail" />
-<s:textfield name="address" label="アドレス" />
-<s:hidden name="aaa" value="hello"></s:hidden>
-<s:submit value="サブミット" />
-</s:form>
-
-
-</BODY>
-</HTML>
+	</body>
+</html>
 
