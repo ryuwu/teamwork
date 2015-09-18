@@ -46,8 +46,11 @@ public class CustomerViewAction extends ActionSupport{
 		CustomerManagementDao dao = CustomerManagementDao.getInstance();
 		List<CustomerInfo> result = dao.getUserInfos();
 
+		//HTMLのテーブルの開始
+		this.result1 += "<table border=\"1\">";
+
 		//HTMLのテーブルのタイトルを表示する。
-		this.result1 += "<table border=\"1\"><tr><th>会社の名前</th><th>会社のE-mail</th><th>住所</th><th>更新</th></tr>";
+		this.result1 += "<tr><th>会社の名前</th><th>会社のE-mail</th><th>住所</th><th>更新</th><th>削除</th></tr>";
 
 		//Daoから取り出された顧客のリストから情報を出して、HTMLのテーブルに保存する。
 		for(CustomerInfo userInfo:result) {
@@ -77,9 +80,25 @@ public class CustomerViewAction extends ActionSupport{
 				"</form>"+
 				"</td>";
 
+			//この行の第五項目に顧客の削除フォームを設定する。
+			this.result1 += "<td>" + "<form id=\"deleteUsers\" " + "name=\"deleteUsers\" " + "action=\"deleteUsers.action\" method=\"post\" >" +
+				//隠されたuserNameフィールドにこの行に対応してる顧客の会社名を設定する。
+				"<input type=\"hidden\" name=\"userName\" value=\"" + userInfo.getUserName()+ "\" id=\"updateUser_userName\"  />"+
+				//隠されたemailフィールドにこの行に対応してる顧客のEメールを設定する。
+				"<input type=\"hidden\" name=\"email\" value=\"" + userInfo.getEmail()+ "\" id=\"updateUser_email\"  />"+
+				//隠されたaddressフィールドにこの行に対応してる顧客の住所を設定する。
+				"<input type=\"hidden\" name=\"address\" value=\"" + userInfo.getAddress()+ "\" id=\"updateUser_address\"  />"+
+				//サブミットボタンを設定する。
+				"<input type=\"submit\" id=\"deleteUsers\" value=\"削除\" />"+
+				"</form>"+
+				"</td>";
+
 			//この行の終了
 			this.result1 += "</tr>";
 		}
+
+		//HTMLのテーブルの終了
+		this.result1 += "</table>";
 
 		return "success";
 

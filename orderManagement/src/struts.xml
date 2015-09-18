@@ -17,5 +17,8 @@
 		<action name="updateResult" class="actionPackage.CustomerUpdateAction" >
 			<result name="success">/customerUpdateResult.jsp</result>
 		</action>
+		<action name="deleteUsers" class="actionPackage.CustomerDeleteAction" >
+			<result name="success">/customerDeleteResult.jsp</result>
+		</action>
 	</package>
 </struts>
